@@ -1,0 +1,34 @@
+{
+  "child_001": [
+    {
+      "symbol": "AAPL",
+      "name": "Apple",
+      "logoUrl": "/public/logos/apple.svg",
+      "funFact": "Apple sells over 1.5 billion devices worldwide."
+    },
+    {
+      "symbol": "NKE",
+      "name": "Nike",
+      "logoUrl": "/public/logos/nike.svg",
+      "funFact": "Nike produces over 780 million pairs of shoes each year."
+    },
+    {
+      "symbol": "TSLA",
+      "name": "Tesla",
+      "logoUrl": "/public/logos/tesla.png",
+      "funFact": "Tesla's Model Y was the world's best-selling car in 2023."
+    },
+    {
+      "symbol": "MSFT",
+      "name": "Microsoft",
+      "logoUrl": "/public/logos/microsoft.svg",
+      "funFact": "Microsoft Windows runs on over 1.3 billion devices worldwide."
+    },
+    {
+      "symbol": "AMZN",
+      "name": "Amazon",
+      "logoUrl": "/public/logos/amazon.svg",
+      "funFact": "Amazon ships over 1.6 million packages every day."
+    }
+  ]
+}
