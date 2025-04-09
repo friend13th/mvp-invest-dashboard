@@ -6,7 +6,10 @@
   "scripts": {
     "start": "node dist/server.js",
     "dev": "nodemon",
-    "build": "tsc",
+    "build": "tsc && npm run copy-files",
+    "copy-files": "copyfiles -u 1 src/mock-data/**/*.json src/public/**/* dist/",
+    "clean": "rimraf dist/",
+    "prebuild": "npm run clean",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -21,7 +24,9 @@
     "@types/cors": "^2.8.13",
     "@types/express": "^4.17.17",
     "@types/node": "^18.15.11",
+    "copyfiles": "^2.4.1",
     "nodemon": "^3.0.1",
+    "rimraf": "^6.0.1",
     "ts-node": "^10.9.1",
     "typescript": "^5.0.3"
   }
