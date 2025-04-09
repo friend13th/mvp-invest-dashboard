@@ -11,11 +11,20 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 3001;
 
-app.use(cors());
-app.use(express.json());
+// CORS configuration based on environment
+const allowedOrigins = process.env.NODE_ENV === 'production'
+  ? process.env.ALLOWED_ORIGINS?.split(',') || []
+  : ['http://localhost:3000'];
+
+app.use(cors({
+  origin: allowedOrigins,
+  credentials: true,
+}));
 
 // Serve static files from the public directory
 app.use("/public", express.static(path.join(__dirname, "../public")));
+
+app.use(express.json());
 
 app.use("/api/auth", authRoutes);
 app.use("/api/investments", investmentRoutes);
@@ -27,4 +36,5 @@ app.get("/health", (req, res) => {
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
+  console.log('Allowed origins:', allowedOrigins);
 });

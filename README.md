@@ -94,3 +94,50 @@ Logos used in the dashboard are served statically from `backend/public/logos/`.
 - `npm run build`: Builds the app for production to the `build` folder.
 - `npm test`: Launches the test runner in interactive watch mode.
 - `npm run eject`: Removes the single build dependency (use with caution).
+
+## Deployment
+
+### Frontend Deployment (Vercel)
+
+1. Create an account on [Vercel](https://vercel.com)
+2. Install Vercel CLI (optional):
+   ```bash
+   npm install -g vercel
+   ```
+3. Add environment variable in Vercel project settings:
+   ```
+   REACT_APP_API_BASE_URL=https://your-backend-url.onrender.com
+   ```
+4. Deploy using one of these methods:
+   - Connect your GitHub repository to Vercel for automatic deployments
+   - Or use Vercel CLI:
+     ```bash
+     cd frontend
+     vercel
+     ```
+
+### Backend Deployment (Render)
+
+1. Create an account on [Render](https://render.com)
+2. Create a new Web Service
+3. Connect your GitHub repository
+4. Configure the service:
+   - **Build Command:** `npm install && npm run build`
+   - **Start Command:** `npm start`
+   - **Environment Variables:**
+     ```
+     PORT=3001
+     NODE_ENV=production
+     ```
+5. Deploy your service
+
+### Important Notes
+
+- Update CORS settings in backend/src/server.ts to allow requests from your frontend domain:
+  ```typescript
+  app.use(cors({
+    origin: ['https://your-frontend-domain.vercel.app']
+  }));
+  ```
+- Ensure all environment variables are properly set in both frontend and backend deployments
+- The free tier may have cold starts, which is normal for hobby projects
