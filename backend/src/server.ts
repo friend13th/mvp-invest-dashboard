@@ -30,8 +30,9 @@ app.use("/api/auth", authRoutes);
 app.use("/api/investments", investmentRoutes);
 app.use("/api/chat", chatRoutes);
 
-app.get("/health", (req, res) => {
-  res.json({ status: "ok" });
+// Health check endpoint
+app.get('/health', (req, res) => {
+  res.status(200).json({ status: 'healthy' });
 });
 
 app.listen(port, () => {
